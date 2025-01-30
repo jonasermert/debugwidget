@@ -1,16 +1,65 @@
-# debugwidget
+# DebugWidget
 
-Debug Widget, das Umrisse für ein Widget und dessen gesamten untergeordneten Teilbaum zeichnet
+A simple debug widget for Flutter that draws visual outlines around widgets to better understand the widget hierarchy.
 
-## Getting Started
+## Features
+- Draws outlines around the given widget and its children.
+- Allows customization of the outline color.
+- Helps with visual debugging in Flutter applications.
 
-This project is a starting point for a Flutter application.
+## Installation
+Add the file containing `DebugWidget` to your project or create a custom helper class based on this code.
 
-A few resources to get you started if this is your first Flutter project:
+## Usage
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```dart
+import 'package:flutter/material.dart';
+import 'debug_widget.dart';
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+void main() {
+  runApp(
+    DebugWidget(
+      color: Colors.blue, // Optional: Default is red
+      child: MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(title: Text("DebugWidget Example")),
+          body: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                DebugWidget(
+                  child: Text("Hello World!"),
+                ),
+                SizedBox(height: 20),
+                DebugWidget(
+                  color: Colors.green,
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text("Press me!"),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+```
+
+## Parameters
+
+| Parameter | Type | Default Value | Description |
+|-----------|------|--------------|-------------|
+| `child`  | `Widget` | - | The widget to debug. |
+| `color`  | `Color` | `Colors.red` | The color of the outline. |
+
+## Benefits
+- Useful for inspecting widget hierarchy.
+- Supports different colors for better distinction.
+- Does not affect the app's functionality.
+
+## License
+This widget is free to use and modify. Happy debugging! 🚀
+
