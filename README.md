@@ -1,3 +1,4 @@
+'''dart
 OverlayDebugger(
   gridColor: Colors.red.withOpacity(0.5),
   gridSize: 20.0,
@@ -5,3 +6,4 @@ OverlayDebugger(
     body: Center(child: Text('Hello, Debug Grid!')),
   ),
 );
+'''
